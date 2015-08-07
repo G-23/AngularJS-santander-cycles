@@ -7,15 +7,13 @@
 		this.requestLocation = function(address) {
 			var deferred = $q.defer();
 
-			$timeout(function() {
-				geocoder.geocode( { 'address': address}, function(result, status) {
-					if (status == google.maps.GeocoderStatus.OK) {
-						deferred.resolve(result[0], status);
-					} else {
-						deferred.resolve(result[0], status);
-					}
-				});
-			}, 100);
+			geocoder.geocode( { 'address': address}, function(result, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					deferred.resolve(result[0], status);
+				} else {
+					deferred.resolve(result[0], status);
+				}
+			});
 
 			return deferred.promise;
 		};
@@ -25,12 +23,10 @@
 		this.getBikes = function(data) {
 			var deferred = $q.defer();
 
-			$timeout(function() {
-				$http.get('https://api.tfl.gov.uk/BikePoint?lat=' + data.geometry.location.G + '&lon=' + data.geometry.location.K + '&radius=2000&app_id=53f9784a&app_key=acacc3e2c79c8bf49bf9315e6e8dec5f ')
-				.then(function(result) {
-					deferred.resolve(result);
-				});
-			}, 100);
+			$http.get('https://api.tfl.gov.uk/BikePoint?lat=' + data.geometry.location.G + '&lon=' + data.geometry.location.K + '&radius=2000&app_id=53f9784a&app_key=acacc3e2c79c8bf49bf9315e6e8dec5f ')
+			.then(function(result) {
+				deferred.resolve(result);
+			});
 
 			return deferred.promise;
 		};
