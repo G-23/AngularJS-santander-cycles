@@ -11,7 +11,7 @@ Try it live: http://simonedeluca.github.io/AngularJS-santander-cycles/app/
 
 - [Node and npm](http://nodejs.org)
 
-## Installation
+## Installation 
 
 1. Clone the repository: `git clone https://github.com/Simonedeluca/AngularJS-weather-forecast.git`
 2. Install the application: `npm install`
