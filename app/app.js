@@ -1,7 +1,7 @@
 (function(){
 	var cyclesApp = angular.module('cycles', []);
 
-	cyclesApp.service('GeoLocation', function($q, $timeout) {
+	cyclesApp.service('GeoLocation', function($q) {
 		var geocoder = new google.maps.Geocoder();
 
 		this.requestLocation = function(address) {
@@ -19,7 +19,7 @@
 		};
 	});
 
-	cyclesApp.service('Cycles', function(GeoLocation, $http, $q, $timeout) {
+	cyclesApp.service('Cycles', function(GeoLocation, $http, $q) {
 		this.getBikes = function(data) {
 			var deferred = $q.defer();
 
@@ -32,7 +32,7 @@
 		};
 	});
 
-	cyclesApp.controller('cyclesController', function($scope, GeoLocation, Cycles, $http) {
+	cyclesApp.controller('cyclesController', function($scope, GeoLocation, Cycles) {
 		$scope.messages = {
 			invalidAddress: false,
 			noResults: false
