@@ -2,7 +2,7 @@
 
 A simple app which lets you find find Santander cycles docking stations around you by entering your address or postcode.
 
-The app makes a request to google maps api to geodecode the address entered, it then sends the latitude and longitude data to the tfl api which returns a list of Santander cycles stations docking within 2miles from the entered address.
+The app makes a request to google maps api to geodecode the address entered, it then sends the latitude and longitude data to the tfl api which returns a list of Santander cycles docking stations within 2miles from the entered address.
 
 Try it live: http://simonedeluca.github.io/AngularJS-santander-cycles/app/
 
