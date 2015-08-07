@@ -1,0 +1,34 @@
+body {
+	text-align: center;
+}
+.description {
+	text-transform: capitalize;
+}
+
+.form-inline {
+	margin-bottom: 30px;
+}
+
+.result {
+	padding-bottom: 23px;
+	margin-top: 20px;
+	border: 1px solid #ccc;
+	max-width: 348px;
+	margin: 0 auto;
+	border-radius: 5px;
+}
+
+.form-control {
+	width: 240px;
+	display: inline-block;
+}
+table {
+	text-align: left;
+	margin-bottom: 20px;
+}
+td, th{
+	padding: 8px;
+}
+.odd {
+	background: #eee;
+}

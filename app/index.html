@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+	<html lang="en" ng-app="cycles"> 
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>AngularJS Santander Cycles</title>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC-Q6kAkRAS0CquHJ5zuIW5BRt_oUPt9M" ></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link href="app.css" rel="stylesheet">
+		<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+	</head>
+	<body>
+
+		<!--[if lt IE 7]>
+		  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+		<main class="col-md-10 col-md-offset-1 col-lg-7 col-lg-offset-2">
+			<h1>AngularJS Santander Cycles</h1>
+			<p>Enter your address or postcode to find Santander cycles docking stations around you.</p>
+			<div ng-controller="cyclesController">
+				<form name ="cyclesForm" class="form-inline">
+					<input required type="text" class="form-control" value="" ng-model="address" ng-minlength="1" placeholder="Enter your address"/>
+					<button type="submit" class="btn btn-primary" ng-click="findBikes()">Search</button>
+
+				</form>
+				<div ng-show="messages.invalidAddress"  class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					<span class="sr-only">Error:</span>
+					Sorry the address you've entered is not valid.
+				</div>
+				<div ng-show="messages.noResults" role="alert">
+					<i>Sorry, there are no docking stations around you! Try to enter a different address.</i>
+				</div>
+				<table ng-show="bikes.length > 0"style="width:100%">
+					<thead>
+						<th>Location</th>
+						<th>Distance</th>
+						<th>Available bikes</th>
+						<th>Empty Docs</th>
+					</thead>
+					<tr  ng-class-odd="'odd'"ng-repeat="bike in bikes track by $index">
+						<td>{{bike.name}}</td>
+						<td>{{bike.distance}} <small>miles</small></td>
+						<td>{{bike.availableBikes}}</td>
+						<td>{{bike.emptyDocks}}</td>
+					</tr>
+				</table>
+			</div>
+		</main>
+
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="app.js"></script>
+		<script src="components/version/version.js"></script>
+		<script src="components/version/version-directive.js"></script>
+		<script src="components/version/interpolate-filter.js"></script>
+	</body>
+</html>
