@@ -64,7 +64,6 @@
 		};
 
 		$scope.fetchResults = function(data) {
-
 			angular.forEach(data.places, function(place) {
 				$scope.bikes.push( {
 					name: place.commonName,
