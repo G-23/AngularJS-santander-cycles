@@ -1,4 +1,4 @@
-# AngularJS-weather-forecast
+# AngularJS-santander-cycles
 
 A simple app which lets you find find Santander cycles docking stations around you by entering your address or postcode.
 
