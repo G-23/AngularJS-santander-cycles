@@ -34,7 +34,6 @@
 
 	cyclesApp.controller('cyclesController', function($scope, GeoLocation, Cycles) {
 		$scope.messages = {
-			invalidAddress: false,
 			noResults: false
 		};
 
@@ -43,9 +42,8 @@
 
 			GeoLocation.requestLocation($scope.address)
 			.then(function(data){
-				if(data == undefined) {
-					$scope.messages.invalidAddress = true;
-					$scope.messages.noResults = false;
+				if(data === undefined) {
+					$scope.messages.noResults = true;
 				} else {
 					Cycles.getBikes(data)
 					.then(function(result){
@@ -56,7 +54,7 @@
 							$scope.messages.noResults = true;
 						}
 					});
-					$scope.messages.invalidAddress = false;
+					$scope.messages.noResults = false;
 				}
 			}, function() {
 				alert('Sorry there was an error in your request, please try again in few minutes.');
