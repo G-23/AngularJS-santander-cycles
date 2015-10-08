@@ -9,9 +9,10 @@
 
 			geocoder.geocode( { 'address': address}, function(result, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
+					console.log(result[0]);
 					deferred.resolve(result[0], status);
 				} else {
-					deferred.resolve(result[0], status);
+					alert(status);
 				}
 			});
 
@@ -23,7 +24,7 @@
 		this.getBikes = function(data) {
 			var deferred = $q.defer();
 
-			$http.get('https://api.tfl.gov.uk/BikePoint?lat=' + data.geometry.location.G + '&lon=' + data.geometry.location.K + '&radius=2000&app_id=53f9784a&app_key=acacc3e2c79c8bf49bf9315e6e8dec5f ')
+			$http.get('https://api.tfl.gov.uk/BikePoint?lat=' + data.geometry.location.J + '&lon=' + data.geometry.location.M + '&radius=2000&app_id=53f9784a&app_key=acacc3e2c79c8bf49bf9315e6e8dec5f ')
 			.then(function(result) {
 				deferred.resolve(result);
 			});
