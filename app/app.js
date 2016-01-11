@@ -9,6 +9,7 @@
 
 			geocoder.geocode( { 'address': address}, function(result, status) {
 				if (status == google.maps.GeocoderStatus.OK) {
+					console.log(result[0].geometry.location.lat())
 					deferred.resolve(result[0], status);
 				} else {
 					deferred.resolve(result[0], status);
